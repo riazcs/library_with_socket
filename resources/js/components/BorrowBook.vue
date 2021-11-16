@@ -101,10 +101,10 @@ import * as bootstrap from "bootstrap";
             console.log(res.data.result);
             if(res.data.result == "success"){ 
                 this.btn="Booked";
-                // this.wSocket.send(JSON.stringify({
-                //                 action: 'borrowBook',
-                //                 room: 'book-'+id
-                //             }));
+                 this.wSocket.send(JSON.stringify({
+                                action: 'borrowBook',
+                           room: 'book-'+id
+                        }));
               }else{                    
               }
           })
