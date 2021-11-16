@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -35,7 +36,27 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'book_id' =>  'required',
+        ]);
+        try {
+            $update_data = Order::create([
+                'order_no' => rand(111111,999999),
+                'product_id' => $request->book_id,
+                'user_id' => 1,
+            ]);
+            if (!empty($update_data)) {
+                DB::commit();
+                return response([
+                        'result' => 'success'
+                    ], 200);
+            } else {
+                throw new \Exception('Failed!');
+            }
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return back()->withErrors($ex->getMessage())->withInput();
+        }
     }
 
     /**

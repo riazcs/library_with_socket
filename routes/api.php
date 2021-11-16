@@ -22,4 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('products', ProductController::class)->names('products');
 Route::post('/book-now', [ProductController::class,'book_now']);
 Route::get('/booked-list', [ProductController::class,'booked_list']);
-Route::post('/give-order', [OrderController::class,'give_order']);
+Route::post('/give-order', [OrderController::class,'store']);
