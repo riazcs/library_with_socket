@@ -1,5 +1,5 @@
-# Laravel Vue Axios Demo
-This is demo for [my blog](https://viblo.asia/p/bai-16-su-dung-axios-de-goi-laravel-api-trong-vuejs-GrLZDw7OKk0) about calling Laravel APIs in Vue using Axios
+Please this project install linux machine.
+
 # How to run
 First clone the project and run the following command:
 ```
@@ -19,4 +19,13 @@ Finally start the project:
 ```
 php artisan serve
 npm run watch
+```
+
+````
+database seed
+php artisan db:seed
+````
+```
+socket run command
+nohup php artisan websocket:init > websocket.log 
 ```
