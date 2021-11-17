@@ -23,7 +23,7 @@ npm run watch
 
 ````
 database seed
-php artisan db:seed
+php artisan db:seed --class=ProductSeeder 
 ````
 ```
 socket run command
